@@ -1,6 +1,6 @@
 package application;
 
-import entities.Triangle;
+import entities.Products;
 
 import java.util.Locale;
 import java.util.Scanner;
@@ -11,34 +11,30 @@ public class Main {
     public static void main(String[] args) {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
+        Products product = new Products();
 
-        Triangle x,y;
-        x = new Triangle();
-        y = new Triangle();
+        System.out.println("Enter product data");
+        System.out.println("Name:");
+        product.name = sc.next();
 
-        System.out.println("Enter the measures of triangle X:");
-        x.a = sc.nextDouble();
-        x.b = sc.nextDouble();
-        x.c = sc.nextDouble();
+        System.out.println("Price:");
+        product.price = sc.nextDouble();
 
-        System.out.println("Enter the measures of triangle Y:");
-        y.a = sc.nextDouble();
-        y.b = sc.nextDouble();
-        y.c = sc.nextDouble();
+        System.out.println("Quantity:");
+        product.quantity = sc.nextInt();
 
+        System.out.println(product);
 
-        double areaX = x.area();
-        double areaY = y.area();
+        System.out.println("Enter the number of products to be added in stock:");
+        product.addProducts(sc.nextInt());
 
-        System.out.printf("entities.Triangle X area : %.4f%n", areaX);
-        System.out.printf("entities.Triangle Y area : %.4f%n", areaY);
+        System.out.println(product);
 
-        if (areaX > areaY) {
-            System.out.printf("entities.Triangle X is the Higher : %.4f%n", areaX);
-        }
-        else {
-            System.out.printf("entities.Triangle Y is the Higher : %.4f%n", areaY);
-        }
+        System.out.println("Enter the number of products to be removed from stock:");
+        product.removeProducts(sc.nextInt());
+
+        System.out.println(product);
+
 
         sc.close();
 
