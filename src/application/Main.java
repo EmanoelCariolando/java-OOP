@@ -12,27 +12,21 @@ public class Main {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
 
-        otherClass other = new otherClass();
 
-        System.out.println("Name:");
-        other.name = sc.nextLine();
+        System.out.println("Enter radius:");
+        double radius = sc.nextDouble();
 
-        System.out.println("Gross salary:");
-        other.grossSalary = sc.nextDouble();
+        double c = otherClass.circumference(radius);
+        System.out.printf("Circumference:%.2f%n",c);
 
-        System.out.println("Tax:");
-        other.tax = sc.nextDouble();
-
-        System.out.println("Employee:" + other);
-
-        System.out.println("Which percentage to increase salary?:");
-        other.increaseSalary(sc.nextDouble());
-
-        System.out.println("Update data:" + other);
-
+        double v = otherClass.volume(radius);
+        System.out.printf("Volume:%.2f%n",v);
 
 
         sc.close();
 
         }
+
+
+
     }
