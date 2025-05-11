@@ -1,15 +1,16 @@
 package entities;
 
 public class otherClass {
-      public static final double PI = 3.1415926;
 
-      public static double circumference(double radius) {
-       return 2.0 * PI * radius;
-      }
-      public static double volume(double radius) {
-            return 4.0 * PI * radius * radius * radius / 3.0;
-      }
+      static final double iof = 0.06;
 
+      public static double dollarCost(double dollar, double howMany) {
+       return dollar * howMany;
       }
+      public static double sumIof(double dollar, double howMany){
+            double base = dollarCost(dollar,howMany);
+            return base + base * iof;
+      }
+}
 
 

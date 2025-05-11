@@ -1,5 +1,4 @@
 package application;
-
 import entities.otherClass;
 
 import java.util.Locale;
@@ -12,21 +11,16 @@ public class Main {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
 
+        System.out.println("What is the dollar price?");
+        double dollar = sc.nextDouble();
+        System.out.println("how many dollars will be bought?");
+        double howMany = sc.nextDouble();
+        otherClass.dollarCost(dollar,howMany);
 
-        System.out.println("Enter radius:");
-        double radius = sc.nextDouble();
-
-        double c = otherClass.circumference(radius);
-        System.out.printf("Circumference:%.2f%n",c);
-
-        double v = otherClass.volume(radius);
-        System.out.printf("Volume:%.2f%n",v);
-
+        System.out.printf("Amount to be paid in real: %.2f", otherClass.sumIof(dollar,howMany));
 
         sc.close();
 
         }
-
-
 
     }
