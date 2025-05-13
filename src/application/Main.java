@@ -10,36 +10,55 @@ public class Main {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Enter product data");
-        System.out.println("Name:");
+        double initialDeposit;
+        Products p;
+
+        System.out.println("Enter account number");
+        int acNumber = sc.nextInt();
+
+        System.out.println("Enter account holder");
         String name = sc.next();
 
-        System.out.println("Price:");
-        double price = sc.nextDouble();
+        System.out.println("Is there na initial deposit (y/n)?");
+        char question = sc.next().charAt(0);
 
-        System.out.println("Quantity:");
-        int quantity = sc.nextInt();
+        if (question == 'y'){
+            System.out.println("Enter initial deposit value: ");
+             initialDeposit = sc.nextDouble();
+            p = new Products(acNumber,name,initialDeposit);
+
+        } else  {
+            p = new Products(acNumber,name);
+          
+        }
+
+        System.out.println(p);
+
+        System.out.println("Enter a deposit value:");
+        double newDeposit = sc.nextDouble();
+        p.deposit(newDeposit);
+
+        System.out.println(p);
+
+        System.out.println("Enter a withdraw value: ");
+        double withDraw = sc.nextDouble();
+        p.withdraw(withDraw);
+
+        System.out.println(p);
 
 
-        Products product = new Products(name,price,quantity);
-        product.setName("Computer");
-        product.setPrice(902.00);
-
-        System.out.println("New product:" + product.getName() + " , " + "new price:" + product.getPrice());
-
-        System.out.println(product);
-
-        System.out.println("Enter the number of products to be added in stock:");
-        product.addProducts(sc.nextInt());
-
-        System.out.println(product);
 
 
 
-        System.out.println("Enter the number of products to be removed from stock:");
-        product.removeProducts(sc.nextInt());
 
-        System.out.println(product);
+
+
+
+
+
+
+
+
 
 
         sc.close();

@@ -1,51 +1,46 @@
 package entities;
 
 public class Products {
+      private int acNumber;
       private String name;
-      private double price;
-      private int quantity;
+      private double value;
 
-      public Products(String name,double price,int quantity){
-          this.name = name;
-          this.price = price;
-          this.quantity = quantity;
+      public Products(int acNumber, String name, double initialDeposit){
+       this.acNumber = acNumber;
+       this.name = name;
+       deposit(initialDeposit);
+      }
+      public Products(int acNumber, String name){
+            this.acNumber = acNumber;
+            this.name = name;
       }
 
-      public String getName(){
+      public int getAcNumber(int acNumber){
+            return acNumber;
+      }
+      public String getName(String name){
             return name;
       }
       public void setName(String name){
-         this.name = name;
+            this.name = name;
+      }
+      public double getValue(double value){
+            return value;
       }
 
-      public Double getPrice(){
-            return price;
-      }
-      public void setPrice(double price){
-            this.price = price;
-      }
-
-
-      public double totalValueInStock(){
-            return price * quantity;
-      }
-      public void addProducts(int quantity) {
-            this.quantity += quantity;
-      }
-      public void removeProducts(int quantity) {
-            this.quantity -= quantity;
-      }
-
-      public String toString() {
-            return "Product data:" +
-                    name +
-                    ", $" +
-                    String.format("%.2f", price) +
-                    "," +
-                    quantity +
-                    " units, Total: $" +
-                    totalValueInStock();
+      public void deposit(double amount){
+            value += amount;
 
       }
+      public void withdraw(double amount){
+            value -= amount + 5.00;
+      }
+
+       public String toString(){
+           return " Account "  +  acNumber + " , " + "Holder:" + name + ", Balance:" + value;
+       }
+
+
+
 }
 
