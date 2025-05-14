@@ -11,21 +11,23 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         int n = sc.nextInt();
+        Products[] v = new Products[n];
 
-        double[] vector = new double[n];
         for (int i =0; i<n; i++){
-            vector[i] = sc.nextDouble();
+            String name = sc.next();
+            double price = sc.nextDouble();
+            v[i] = new Products(name,price);
         }
+
 
         double sum = 0.0;
-        for (int i=0; i<n; i++ ){
-          sum += vector[i];
+
+        for (int i =0; i<n; i++){
+           sum += v[i].getPrice();
         }
-        
-        double allSums = sum / n;
-        System.out.printf("AVERAGE HEIGHT = %.2f",allSums);
+        double all = sum / n;
 
-
+        System.out.printf("AVERAGE PRICE = %.2f%n",all);
 
 
 
