@@ -10,52 +10,20 @@ public class Main {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
 
-        double initialDeposit;
-        Products p;
+        int n = sc.nextInt();
 
-        System.out.println("Enter account number");
-        int acNumber = sc.nextInt();
-
-        System.out.println("Enter account holder");
-        String name = sc.next();
-
-        System.out.println("Is there na initial deposit (y/n)?");
-        char question = sc.next().charAt(0);
-
-        if (question == 'y'){
-            System.out.println("Enter initial deposit value: ");
-             initialDeposit = sc.nextDouble();
-            p = new Products(acNumber,name,initialDeposit);
-
-        } else  {
-            p = new Products(acNumber,name);
-          
+        double[] vector = new double[n];
+        for (int i =0; i<n; i++){
+            vector[i] = sc.nextDouble();
         }
 
-        System.out.println(p);
-
-        System.out.println("Enter a deposit value:");
-        double newDeposit = sc.nextDouble();
-        p.deposit(newDeposit);
-
-        System.out.println(p);
-
-        System.out.println("Enter a withdraw value: ");
-        double withDraw = sc.nextDouble();
-        p.withdraw(withDraw);
-
-        System.out.println(p);
-
-
-
-
-
-
-
-
-
-
-
+        double sum = 0.0;
+        for (int i=0; i<n; i++ ){
+          sum += vector[i];
+        }
+        
+        double allSums = sum / n;
+        System.out.printf("AVERAGE HEIGHT = %.2f",allSums);
 
 
 
