@@ -14,20 +14,25 @@ public class Main {
         System.out.println("How Many Numbers Will You Type?");
         int n = sc.nextInt();
 
-        int[] v = new int[n];
+        Double[] v = new Double[n];
 
         for (int i =0; i<n; i++){
-             v[i] = sc.nextInt();
+            System.out.println("Type one Number:");
+             v[i] = sc.nextDouble();
         }
 
+        System.out.print("Values =");
 
-        System.out.println("NEGATIVE NUMBERS");
-        
+        double sum = 0.0;
         for (int i =0; i<n; i++){
-            if(v[i] < 0){
-              System.out.println(v[i]);
-            }
+          System.out.print( " "  +v[i]+ " " );
+          sum += v[i];
         }
+        System.out.println();
+        System.out.printf("Sum = %.2f%n",sum);
+        double allSum = sum / n;
+        System.out.printf("Media = %.2f%n",allSum);
+
 
 
 
