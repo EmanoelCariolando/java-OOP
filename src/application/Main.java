@@ -10,28 +10,29 @@ public class Main {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
 
+
+        System.out.println("How Many Numbers Will You Type?");
         int n = sc.nextInt();
-        Products[] v = new Products[n];
+
+        int[] v = new int[n];
 
         for (int i =0; i<n; i++){
-            String name = sc.next();
-            double price = sc.nextDouble();
-            v[i] = new Products(name,price);
+             v[i] = sc.nextInt();
         }
 
 
-        double sum = 0.0;
-
+        System.out.println("NEGATIVE NUMBERS");
+        
         for (int i =0; i<n; i++){
-           sum += v[i].getPrice();
+            if(v[i] < 0){
+              System.out.println(v[i]);
+            }
         }
-        double all = sum / n;
-
-        System.out.printf("AVERAGE PRICE = %.2f%n",all);
 
 
 
-        sc.close();
+
+
 
     }
 }
