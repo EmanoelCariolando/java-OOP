@@ -13,10 +13,9 @@ public class Main {
 
         System.out.print(" How Many Numbers Will You Type? ");
         int n = sc.nextInt();
-        int room;
 
 
-        Persons[] p = new Persons[n];
+        Persons[] p = new Persons[10];
 
 
         for (int i = 0; i < n; i++) {
@@ -24,6 +23,8 @@ public class Main {
             String names = sc.next();
             System.out.print(" Email: ");
             String email = sc.next();
+
+            int room;
             while(true) {
                 System.out.print(" Room: ");
                 room = sc.nextInt();
@@ -33,11 +34,12 @@ public class Main {
                     System.out.println(" Select one Number under 10 ");
                 }
             }
-            p[i] = new Persons(names,email,room);
+            p[room] = new Persons(names,email,room);
         }
 
-
-            for ( int i = 0; i < n; i++) {
+            System.out.println("Busy Room");
+            System.out.println(p);
+            for ( int i = 0; i < p.length; i++) {
                 if (p[i] != null) {
                     System.out.println(p[i]); // chama automaticamente o toString()
                 }

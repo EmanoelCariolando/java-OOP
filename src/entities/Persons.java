@@ -5,12 +5,19 @@ public class Persons {
       private String email;
       private int room;
 
-      public Persons(String name, String email, int room  ) {
+      public Persons(String name, String email,int room  ) {
             this.name = name;
             this.email = email;
             this.room = room;
       }
 
+      public int getRoom() {
+            return room;
+      }
+
+      public void setRoom(int room) {
+            this.room = room;
+      }
 
       public String getName() {
             return name;
@@ -27,16 +34,10 @@ public class Persons {
       public void setEmail(String email) {
             this.email = email;
       }
-      public int getRoom() {
-            return room;
-      }
 
-      public void setRoom(int room) {
-            this.room = room;
-      }
 
       @Override
       public String toString() {
-            return room + " : " + name + " , " + email;
+            return + room + ":" + name + " , " + email;
       }
 }
