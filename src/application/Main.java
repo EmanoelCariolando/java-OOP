@@ -13,61 +13,34 @@ public class Main {
 
         System.out.print(" How Many Numbers Will You Type? ");
         int n = sc.nextInt();
+        int room;
+
 
         Persons[] p = new Persons[n];
 
 
-        for (int i =0; i<n; i++){
-          System.out.print(" Name: ");
-          String names = sc.next();
-          System.out.print(" Age: ");
-          int age = sc.nextInt();
-          System.out.print(" Height: ");
-          double height = sc.nextDouble();
-           p[i] = new Persons(names,age,height);
-        }
-
-        int counter = 0;
-        double getter = 0.0;
-
-        for (int i =0; i<n; i++){
-            getter += p[i].getHeight();
-          if(p[i].getAge() < 16 ){
-            counter++;
-          }
-        }
-        double sum = getter / n;
-        System.out.printf("Average Height: %.2f%n",sum);
-        double agePercentage = ((double)counter / n) * 100;
-        System.out.printf("people under 16 years of age: %.1f%%%n",agePercentage);
-
-        for (int i =0; i<n; i++){
-            if(p[i].getAge() < 16 ){
-                System.out.println(p[i].getName());
+        for (int i = 0; i < n; i++) {
+            System.out.print(" Name: ");
+            String names = sc.next();
+            System.out.print(" Email: ");
+            String email = sc.next();
+            while(true) {
+                System.out.print(" Room: ");
+                room = sc.nextInt();
+                if (room < 10) {
+                    break;
+                } else {
+                    System.out.println(" Select one Number under 10 ");
+                }
             }
+            p[i] = new Persons(names,email,room);
         }
 
-        /*
-        Exemplo:
- Quantas pessoas serao digitadas? 5
- Joao
- 15
- 1.82
- Maria
- 16
- 1.60
- Teresa
- 14
- 1.58
- Carlos
- 21
- 1.65
- Paulo
- 17
- 1.78
-*/
 
-
-
-    }
-}
+            for ( int i = 0; i < n; i++) {
+                if (p[i] != null) {
+                    System.out.println(p[i]); // chama automaticamente o toString()
+                }
+              }
+            }
+         }
