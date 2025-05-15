@@ -1,7 +1,6 @@
 package application;
 
 import entities.Persons;
-
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -28,10 +27,10 @@ public class Main {
             while(true) {
                 System.out.print(" Room: ");
                 room = sc.nextInt();
-                if (room < 10) {
+                if (room < 10 && p[room] == null) {
                     break;
                 } else {
-                    System.out.println(" Select one Number under 10 ");
+                    System.out.println("room rented or unavailable ");
                 }
             }
             p[room] = new Persons(names,email,room);
