@@ -1,42 +1,71 @@
 package application;
 
-import entities.Products;
+import entities.Persons;
 
 import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
+
     public static void main(String[] args) {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
 
-
         System.out.print(" How Many Numbers Will You Type? ");
         int n = sc.nextInt();
 
-        Double[] v = new Double[n];
+        Persons[] p = new Persons[n];
+
 
         for (int i =0; i<n; i++){
-            System.out.print(" Type one Number: ");
-             v[i] = sc.nextDouble();
+          System.out.print(" Name: ");
+          String names = sc.next();
+          System.out.print(" Age: ");
+          int age = sc.nextInt();
+          System.out.print(" Height: ");
+          double height = sc.nextDouble();
+           p[i] = new Persons(names,age,height);
         }
 
-        System.out.print(" Values = ");
+        int counter = 0;
+        double getter = 0.0;
 
-        double sum = 0.0;
         for (int i =0; i<n; i++){
-          System.out.print( v[i]+ " " );
-          sum += v[i];
+            getter += p[i].getHeight();
+          if(p[i].getAge() < 16 ){
+            counter++;
+          }
         }
-        System.out.println();
-        System.out.println();
-        System.out.printf(" Sum = %.2f%n",sum);
-        double allSum = sum / n;
-        System.out.printf(" Media = %.2f%n",allSum);
+        double sum = getter / n;
+        System.out.printf("Average Height: %.2f%n",sum);
+        double agePercentage = ((double)counter / n) * 100;
+        System.out.printf("people under 16 years of age: %.1f%%%n",agePercentage);
 
+        for (int i =0; i<n; i++){
+            if(p[i].getAge() < 16 ){
+                System.out.println(p[i].getName());
+            }
+        }
 
-
-
+        /*
+        Exemplo:
+ Quantas pessoas serao digitadas? 5
+ Joao
+ 15
+ 1.82
+ Maria
+ 16
+ 1.60
+ Teresa
+ 14
+ 1.58
+ Carlos
+ 21
+ 1.65
+ Paulo
+ 17
+ 1.78
+*/
 
 
 
