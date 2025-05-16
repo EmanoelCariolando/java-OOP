@@ -49,6 +49,11 @@ public class Main {
             System.out.println(x);
         }
 
+        System.out.println("-------------------------------");
+
+       String otherList = list.stream().filter(x -> x.charAt(0) == 'k').findFirst().orElse(null);
+       System.out.println(otherList);
+
 
 
     }
