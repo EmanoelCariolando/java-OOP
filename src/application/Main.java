@@ -2,9 +2,6 @@ package application;
 
 import entities.Persons;
 
-import java.util.List;
-import java.util.ArrayList;
-
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -15,41 +12,47 @@ public class Main {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
 
+
+        System.out.println("Enter the numbers of rows and columns of the matrix: ");
         int n = sc.nextInt();
+        int m = sc.nextInt();
 
-        int[][] matriz = new int[n][n];
+        int[][] mat = new int[n][m];
 
-        for (int i=0; i<matriz.length; i++){
-            for (int j=0; j<n; j++){
-                matriz[i][j] = sc.nextInt();
+        for (int i = 0; i < mat.length; i++) {
+            for (int j = 0; j < m; j++) {
+               mat[i][j] = sc.nextInt();
             }
         }
 
-        System.out.println("showing diagonal numbers");
-        for (int i=0; i<matriz.length; i++) {
-            System.out.printf("%d%n",matriz[i][i]);
+        System.out.println("Enter the number to be searched: ");
+        int chosedNumber = sc.nextInt();
+
+        for (int i = 0; i < mat.length; i++) {
+            for (int j = 0; j<mat[i].length; j++) {
+                if (mat[i][j] == chosedNumber){
+                    System.out.println("Position: (" + i + "," + j + " ) ");
+                    if (j > 0) {
+                        System.out.println("Left: " + mat[i][j-1]);
+                    }
+                    if (i > 0) {
+                        System.out.println("Up: " + mat[i-1][j]);
+                    }
+                    if (j < mat[i].length - 1){
+                        System.out.println("Right: " + mat[i][j+1]);
+                    }
+                    if (i < mat.length - 1){
+                        System.out.println("Down: " + mat[i+1][j]);
+                    }
+                }
+            }
+
         }
 
-        int count = 0;
-
-         for (int i=0; i<matriz.length; i++) {
-             for (int j=0; j<n; j++){
-                 if (matriz[i][j] <0){
-                     System.out.println("Show Negativa Numbers" + matriz[i][j]);
-                     count++;
-                 }
-             }
-        }
-
-         System.out.println("Negative Numbers: " + count);
-
-
-     }
+    sc.close();
     }
- /*
- 1 -2 -3
--4 5 -6
--7 -8 9
- */
+
+}
+
 
 
