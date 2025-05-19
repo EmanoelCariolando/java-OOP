@@ -2,57 +2,61 @@ package application;
 
 import entities.Persons;
 
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.Scanner;
 
 
 public class Main {
 
-    public static void main(String[] args) {
-        Locale.setDefault(Locale.US);
-        Scanner sc = new Scanner(System.in);
+        public static void main(String[] args) {
+
+            DateTimeFormatter fmt1 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            DateTimeFormatter fmt2 = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+
+            LocalDate d01 = LocalDate.now();
+            LocalDateTime d02 = LocalDateTime.now();
+            Instant d03 = Instant.now();
+
+            LocalDate dp01 = LocalDate.parse("2025-10-15");
+            LocalDateTime dp02 = LocalDateTime.parse("2025-10-15T10:15:30");
+            Instant dp03 = Instant.parse("2025-10-15T01:15:30Z");
+
+             LocalDate dpf01 = LocalDate.parse("15/10/2005", fmt1);
+            LocalDateTime dpf02 = LocalDateTime.parse("15/10/2005 10:15", fmt2);
 
 
-        System.out.println("Enter the numbers of rows and columns of the matrix: ");
-        int n = sc.nextInt();
-        int m = sc.nextInt();
+            System.out.println("d01 = " + d01);
+            System.out.println("d02 = " + d02);
+            System.out.println("d03 = " + d03);
 
-        int[][] mat = new int[n][m];
+            System.out.println();
 
-        for (int i = 0; i < mat.length; i++) {
-            for (int j = 0; j < m; j++) {
-               mat[i][j] = sc.nextInt();
-            }
+            System.out.println("dp1 = " + dp01);
+            System.out.println("dp2 = " + dp02);
+
+            System.out.println();
+
+            System.out.println("dpf1 = " + dpf01.toString());
+            System.out.println("dpf2 = " + dpf02.toString());
+
+
+
+
+
+
+
+
+
+
+
         }
-
-        System.out.println("Enter the number to be searched: ");
-        int chosedNumber = sc.nextInt();
-
-        for (int i = 0; i < mat.length; i++) {
-            for (int j = 0; j<mat[i].length; j++) {
-                if (mat[i][j] == chosedNumber){
-                    System.out.println("Position: (" + i + "," + j + " ) ");
-                    if (j > 0) {
-                        System.out.println("Left: " + mat[i][j-1]);
-                    }
-                    if (i > 0) {
-                        System.out.println("Up: " + mat[i-1][j]);
-                    }
-                    if (j < mat[i].length - 1){
-                        System.out.println("Right: " + mat[i][j+1]);
-                    }
-                    if (i < mat.length - 1){
-                        System.out.println("Down: " + mat[i+1][j]);
-                    }
-                }
-            }
-
-        }
-
-    sc.close();
-    }
-
 }
+
+
 
 
 
